@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Post extends Model { }
-//trying to fix heroku
+
 Post.init(
   {
     id: {

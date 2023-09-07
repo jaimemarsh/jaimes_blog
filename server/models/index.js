@@ -2,12 +2,9 @@ const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
 
-//error is Post does not exist
-
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
-  // onDelete: 'CASCADE'
 });
 
 Post.belongsTo(User, {
@@ -28,7 +25,6 @@ User.hasMany(Comment, {
 
 Post.hasMany(Comment, {
   foreignKey: 'post_id',
-  // onDelete: 'CASCADE'
 });
 
 
