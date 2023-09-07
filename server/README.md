@@ -1,0 +1,1 @@
+A blog where I can share experiences and advice to other web developers
