@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js --ignore client",
+    "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
@@ -19,7 +19,9 @@
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "develop": "^1.0.0",
     "run": "^1.4.0"
-  }
+  },
+  "proxy": "http://localhost:8800/api/"
 }
