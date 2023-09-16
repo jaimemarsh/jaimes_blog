@@ -1,8 +1,8 @@
 import axios from "axios";
 import { createContext } from "react";
 import { useState, useEffect } from "react";
-
-export const AuthContext = createContext;
+//this page is causing login error
+export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(
@@ -20,9 +20,15 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        localStorage.setItem("user", JSON.stringify(currentUser));
+        const userJSON = JSON.stringify(currentUser);
+        const storedUserJSON = localStorage.getItem("user");
+    
+        // Only update the localStorage if the user object has changed.
+        if (userJSON !== storedUserJSON) {
+            localStorage.setItem("user", userJSON);
+        }
     }, [currentUser]);
-
+    
     return (
         <AuthContextProvider value={{ currentUser, login, logout }}>
             {children}

@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext"
 // import axios from 'axios';
 
 const Login = () => {
-    const [setInputs] = useState({
+    const [inputs, setInputs] = useState({
         username: "",
         password: "",
     })

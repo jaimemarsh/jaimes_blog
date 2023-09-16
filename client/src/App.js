@@ -23,19 +23,19 @@ const Layout = () => {
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Layout/>,
-        children:[
+        element: <Layout />,
+        children: [
             {
-                index: true,
-                element: <Home/>
+                path: "/",
+                element: <Home />
             },
             {
                 path: "post/:id",
-                element: <Single/>
+                element: <Single />
             },
             {
                 path: "Write",
-                element: <Write/>
+                element: <Write />
             },
         ]
     },
@@ -49,15 +49,14 @@ const router = createBrowserRouter([
     }
 ]);
 
-
-
 function App() {
     return (
         <div className="app">
             <div className="container">
-            <RouterProvider router={router} />
+                <RouterProvider router={router} />
             </div>
         </div>
     )
 }
-export default App
+
+export default App;
