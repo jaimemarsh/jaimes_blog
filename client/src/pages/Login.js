@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext} from "react";
-import { AuthContext } from "../context/AuthContext"
-// import axios from 'axios';
+// import { useContext} from "react";
+// import { AuthContext } from "../context/AuthContext"
+import axios from 'axios';
 
 const Login = () => {
+
     const [inputs, setInputs] = useState({
         username: "",
         password: "",
@@ -14,17 +15,14 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const { currentUser } = useContext(AuthContext)
-
-    console.log(currentUser)
-
-    const handleChange = (e) => {
+    const handleChange = e => {
         setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
 
     const handleSubmit = async e => {
         e.preventDefault()
         try {
+            await axios.post("/auth/login", inputs)
             navigate("/")
         } catch (err) {
             //path for error message
@@ -48,7 +46,7 @@ const Login = () => {
                     <div className="field">
                         <label className="label">Password</label>
                         <div className="control">
-                            <input required className="input" type="password" placeholder="********" name="password" onChange={handleChange}></input>
+                            <input required className="input" type="password" placeholder="********" name="password" onChange={handleChange} autoComplete="current-password"></input>
                         </div>
                     </div>
 
