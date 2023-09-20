@@ -15,8 +15,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const {currentUser} = useContext(AuthContext);
-    console.log(currentUser)
+    const {login} = useContext(AuthContext);
 
     const handleChange = e => {
         setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -25,8 +24,7 @@ const Login = () => {
     const handleSubmit = async e => {
         e.preventDefault()
         try {
-            // commented out for authContext
-            // await axios.post("/auth/login", inputs)
+          await login(inputs)
             navigate("/")
         } catch (err) {
             //path for error message

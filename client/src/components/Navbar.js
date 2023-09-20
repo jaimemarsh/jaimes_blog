@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Logo from '../images/getTechyLogo.png';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -8,7 +9,9 @@ function Navbar() {
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
-// 48.11
+
+    const { currentUser, logout } = useContext(AuthContext)
+
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
@@ -47,6 +50,12 @@ function Navbar() {
                     <Link to="/Contact" className="navbar-item google-font-ss">
                         Contact Me
                     </Link>
+                    <div className="navbar-item">
+                        <span>Hi {currentUser?.username}!</span>
+                    </div>
+                    <div className="navbar-item">
+                    { currentUser ?    <span onClick={logout}>Logout</span>  : <Link className="link" to="/login">Login</Link>}
+                    </div>
                 </div>
             </div>
         </nav>
