@@ -1,42 +1,28 @@
-//breaking code 
+import { createContext, useEffect, useState } from "react"
+import axios from "axios";
 
 
+export const AuthContext = createContext();
+export const AuthContextProvider = ({ children }) => {
+    const [currentUser, setCurrectUser] = useState(JSON.parse(localStorage.getItem("user") || null))
 
-// import axios from "axios";
-// import { createContext } from "react";
-// import { useState, useEffect } from "react";
-// //this page is causing login error
-// export const AuthContext = createContext();
+    const login = async (inputs) => {
+        const res = await axios.post("auth/login", inputs)
+        setCurrectUser(res.data)
+    }
 
-// export const AuthContextProvider = ({ children }) => {
-//     const [currentUser, setCurrentUser] = useState(
-//         JSON.parse(localStorage.getItem("user")) || null
-//     );
+    const logout = async (inputs) => {
+        const res = await axios.post("auth/logout", inputs)
+        setCurrectUser(null)
+    }
 
-//     const login = async (inputs) => {
-//         const res = await axios.post("/auth/login", inputs)
-//         setCurrentUser(res.data)
-//     }
+    useEffect(() => {
+        localStorage.setItem("user", JSON.stringify(currentUser))
+    }, [currentUser]);
 
-//     const logout = async (inputs) => {
-//         await axios.post("/auth/logout", inputs)
-//         setCurrentUser(null)
-//     }
-
-//     useEffect(() => {
-//         const userJSON = JSON.stringify(currentUser);
-//         const storedUserJSON = localStorage.getItem("user");
-    
-//         // Only update the localStorage if the user object has changed.
-//         if (userJSON !== storedUserJSON) {
-//             localStorage.setItem("user", userJSON);
-//         }
-//     }, [currentUser]);
-    
-//     return (
-//         <AuthContextProvider value={{ currentUser, login, logout }}>
-//             {children}
-//         </AuthContextProvider>
-//     )
-
-// }
+    return (
+        <AuthContext.Provider value={{ currentUser, login, logout }} >
+            {children}
+        </ AuthContext.Provider>
+    )
+}
