@@ -1,0 +1,11 @@
+
+.navbar {
+    height: 100px; 
+  }
+  
+  .image {
+    max-width: 100%; 
+    height: auto; 
+    max-height: 100px;
+  }
+  

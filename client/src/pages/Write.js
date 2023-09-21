@@ -35,7 +35,7 @@ const Write = () => {
                     <div className="item">
                         <h1>Category</h1>
                         <input type="radio" name="cat" value="art" id="art"/>
-                        <lavel htmlFor="art">Art</lavel>
+                        <label htmlFor="art">Art</label>
                         {/* can add more */}
                     </div>
 
