@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import Menu from '../components/Menu'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
 import { AuthContext } from '../context/AuthContext.js'
@@ -12,6 +12,7 @@ const Single = () => {
     const [post, setPost] = useState({})
 
     const location = useLocation()
+    const navigate = useNavigate()
 
     const postId = location.pathname.split("/")[2]
 
@@ -29,6 +30,15 @@ const Single = () => {
         };
         fetchData();
     }, [postId]);
+
+    const handleDelete = async () => {
+        try {
+            await axios.delete(`/posts/${postId}`)
+            navigate("/")
+        } catch (err) {
+            console.log(err)
+        }
+    }
     return (
         <div className="container is-max-widescreen">
             <div className="columns">
@@ -39,21 +49,25 @@ const Single = () => {
                         <img src={post?.img} alt="Love" />
                     </div>
                     <div className="is-flex is-flex-direction-row">
-                        <div className="user image is-64x64">
-                            <img className="image is-rounded" src={post.userImg} alt="User" />
-                        </div>
+
+                        {post.userImg &&
+                            <div className="user image is-64x64">
+                                <img className="image is-rounded" src={post.userImg} alt="User" />
+                            </div>
+                        }
+
                         <div className="info mx-3">
                             <span>{post.username}</span>
                             <p>Posted {moment(post.date).fromNow()}</p>
                         </div>
-
                         {currentUser.username === post.username && (
+                            // EDIT
                             <div>
                                 <div className="edit mx-3">
                                     <Link to={`/write?edit=2`}><FontAwesomeIcon icon={faPenToSquare} size="lg" /></Link>
-
                                 </div>
-                                <div className="deleted mx-3"><FontAwesomeIcon icon={faTrashCan} size="lg" /></div>
+                                {/* DELETE */}
+                                <div onClick={handleDelete} className="deleted mx-3"><FontAwesomeIcon icon={faTrashCan} size="lg" /></div>
                             </div>
                         )}
                     </div>
@@ -63,7 +77,7 @@ const Single = () => {
                     </p>
                 </div>
                 <div className="column is-one-fifth">
-                    <Menu />
+                    <Menu cat={post.cat}/>
                 </div>
 
             </div>
