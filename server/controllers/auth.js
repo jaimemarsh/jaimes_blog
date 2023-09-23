@@ -33,7 +33,6 @@ export const register = (req, res) => {
 
 export const login = (req, res) => {
     // CHECK USER
-
     const q = "SELECT * FROM users WHERE username = ?";
 
     db.query(q, [req.body.username], (err, data) => {
@@ -42,22 +41,37 @@ export const login = (req, res) => {
 
         //CHECK PASSWORD
         // first item in array is user and then check it's password
-        const isPasswordCorrect = bcrypt.compareSync(req.body.password, data[0].password)
+        const isPasswordCorrect =
+            bcrypt.compareSync(
+                req.body.password,
+                data[0].password)
 
-        if (!isPasswordCorrect) return res.status(400).json("Wrong username or password")
-
+        if (!isPasswordCorrect)
+            return res.status(400).json("Wrong username or password")
 
         // user.id storing token in cookie, application will check web token to know if you can edit a post
         const token = jwt.sign({ id: data[0].id }, "jwtkey");
+        console.log("Generated Token:", token);
+
         // sharing information but not password
         const { password, ...other } = data[0]
 
         res.cookie("access_token", token, {
-            httpOnly: true
+            httpOnly: true,
+            secure: true,
         }).status(200).json(other)
+        console.log("Token:", token)
+
+
+        console.log("Hello")
     });
 };
 
 export const logout = (req, res) => {
+
+    res.clearCookie("access_token", {
+        sameSite: "none",
+        secure: true,
+    }).status(200).json("User has been logged out")
 
 }
