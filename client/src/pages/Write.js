@@ -52,7 +52,7 @@ const Write = () => {
                     <label htmlFor="file">Upload Image</label>
                     <div className="buttons">
                         <button className="button">Save as Draft</button>
-                        <button className="button" onClick={handleClick}>Publish</button>
+                        <button className="button" type="button" onClick={handleClick}>Publish</button>
                     </div>
 
 
