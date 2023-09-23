@@ -64,7 +64,7 @@ const Single = () => {
                             // EDIT
                             <div>
                                 <div className="edit mx-3">
-                                    <Link to={`/write?edit=2`}><FontAwesomeIcon icon={faPenToSquare} size="lg" /></Link>
+                                    <Link to={`/write?edit=2`} state={post}><FontAwesomeIcon icon={faPenToSquare} size="lg" /></Link>
                                 </div>
                                 {/* DELETE */}
                                 <div onClick={handleDelete} className="deleted mx-3"><FontAwesomeIcon icon={faTrashCan} size="lg" /></div>

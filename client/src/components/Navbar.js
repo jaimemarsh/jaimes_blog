@@ -20,7 +20,11 @@ function Navbar() {
                     <img className="image" src={Logo} alt="Logo" />
                 </Link>
                 <div className="navbar-item">
-                    <span>Hi {currentUser?.username}!</span>
+                    <span>
+                        {currentUser ? `Hi ${currentUser.username}!` : null}{' '}
+                        {currentUser ? <Link to="/Write">Write</Link> : null}
+                    </span>
+
                 </div>
                 <div
                     className={`navbar-burger burger ${menuOpen ? 'is-active' : ''}`}
@@ -47,7 +51,7 @@ function Navbar() {
                             </Link>
 
                             <Link to="/?cat=science" className="link navbar-item">
-                               SCIENCE
+                                SCIENCE
                             </Link>
 
                             <Link to="/?cat=technology" className="link navbar-item">
