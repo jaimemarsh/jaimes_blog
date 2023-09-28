@@ -24,10 +24,11 @@ const Write = () => {
             console.log(err)
         }
     }
+
     const handleClick = async (e) => {
         e.preventDefault();
         try {
-            const imgUrl = await upload(); // Await the result of the upload function
+            const imgUrl = await upload();
             if (state) {
                 await axios.put(`/posts/${state.id}`, {
                     title,
@@ -49,7 +50,7 @@ const Write = () => {
             console.error("An error occurred:", err);
         }
     };
-    
+
 
     return (
         <div className="container is-max-desktop">

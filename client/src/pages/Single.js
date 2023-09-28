@@ -39,6 +39,12 @@ const Single = () => {
             console.log(err)
         }
     }
+
+    const getText = (html) => {
+        const doc = new DOMParser().parseFromString(html, "text/html")
+        return doc.body.textContent
+    }
+
     return (
         <div className="container is-max-widescreen">
             <div className="columns">
@@ -72,12 +78,12 @@ const Single = () => {
                         )}
                     </div>
 
-                    <h1>{post.title}</h1>
-                    <p className="has-text-justified">{post.desc}
+                    <h1>{getText(post.title)}</h1>
+                    <p className="has-text-justified">{getText(post.desc)}
                     </p>
                 </div>
                 <div className="column is-one-fifth">
-                    <Menu cat={post.cat}/>
+                    <Menu cat={post.cat} />
                 </div>
 
             </div>

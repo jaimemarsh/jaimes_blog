@@ -21,26 +21,10 @@ const Home = () => {
         fetchData();
     }, [cat]);
 
-    // const posts = [
-    //     {
-    //         id: 1,
-    //         title: "First Post",
-    //         desc: "How to rule the world",
-    //         img: Love
-    //     },
-    //     {
-    //         id: 2,
-    //         title: "Second Post",
-    //         desc: "How to rule the world",
-    //         img: Love
-    //     },
-    //     {
-    //         id: 3,
-    //         title: "Third Post",
-    //         desc: "How to rule the world",
-    //         img: Love
-    //     },
-    // ]
+    const getText =(html)=>{
+        const doc = new DOMParser().parseFromString(html, "text/html")
+        return doc.body.textContent
+    }
 
     return (
         <>
@@ -51,11 +35,12 @@ const Home = () => {
                         <div className="post" key={post.id}>
                             <div className="img">
                                 <img src={post.img} alt="" />
+                                {/* <img src={`../upload/${post.img}`} alt="" /> */}
                             </div>
                             <div className="content">
                                 <Link className="link" to={`/post/${post.id}`}>
-                                    <h1>{post.title}</h1>
-                                    <p>{post.desc}</p>
+                                    <h1>{getText(post.title)}</h1>
+                                    <p>{getText(post.desc)}</p>
                                     <button>Read More</button>
                                 </Link>
                             </div>
