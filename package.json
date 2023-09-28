@@ -1,6 +1,7 @@
 {
   "name": "jaimes_blog",
   "version": "1.0.0",
+   "homepage": "https://jaimemarsh.github.io/jaimes_blog",
   "description": "",
   "main": "server/server.js",
   "scripts": {
