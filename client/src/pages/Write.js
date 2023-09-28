@@ -3,7 +3,7 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-// import moment from "moment";
+import moment from "moment";
 
 const Write = () => {
 
@@ -24,16 +24,32 @@ const Write = () => {
             console.log(err)
         }
     }
-    const handleClick = async e => {
+    const handleClick = async (e) => {
         e.preventDefault();
-        upload()
-    }
-
-    // try {
-    //     state ? await axios.put(`/posts/${state.id}`);
-    // } catch (err) {
-    //     console.log(err)
-    // }
+        try {
+            const imgUrl = await upload(); // Await the result of the upload function
+            if (state) {
+                await axios.put(`/posts/${state.id}`, {
+                    title,
+                    desc: value,
+                    cat,
+                    img: file ? imgUrl : "",
+                });
+            } else {
+                const formattedDate = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
+                await axios.post(`/posts/`, {
+                    title,
+                    desc: value,
+                    cat,
+                    img: file ? imgUrl : "",
+                    date: formattedDate,
+                });
+            }
+        } catch (err) {
+            console.error("An error occurred:", err);
+        }
+    };
+    
 
     return (
         <div className="container is-max-desktop">
