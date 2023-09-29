@@ -5,7 +5,7 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/server.js --ignore client",
+    "start": "npm run develop",
     "develop": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npm run start",
     "client": "cd client && npm start",
