@@ -1,5 +1,8 @@
 import React from 'react';
-import jaimeImg from '../images/jaimeImg.JPG';
+import jaimeImg from '../images/jaimeImg.png';
+import gitHub from '../images/gitHub.png'
+import linkedIn from '../images/linkedIn.png'
+import port from '../images/port.png'
 // import Cat from '../components/Cat'
 // import { Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,10 +17,10 @@ const Developer = () => {
                 <div className="columns">
                     <div className="column ml-6">
                         <div className="image-grid">
+                            <a href="https://github.com/jaimemarsh" ><img className="github zoom" src={gitHub} alt="" /></a>
                             <img className="jaiimg" src={jaimeImg} alt="" />
-                            <img className="jaiimg" src={jaimeImg} alt="" />
-                            <img className="jaiimg" src={jaimeImg} alt="" />
-                            <img className="jaiimg" src={jaimeImg} alt="" />
+                            <a href="https://www.linkedin.com/in/jaime-marsh/"><img className="linkedIn zoom" src={linkedIn} alt="" /></a>
+                            <a href="https://jaimemarsh.com"> <img className="portfolio zoom" src={port} alt="" /></a>
                         </div>
                     </div>
                     <div className="column has-text-left">

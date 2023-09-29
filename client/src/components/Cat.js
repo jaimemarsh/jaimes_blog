@@ -19,10 +19,10 @@ const Cat = () => {
     <div className="section is-small">
       <div className="columns">
         <div className="column">
-          <h1 className="title is-size-1 is-size-3-mobile google-font-bs has-text-centered">Read What You Want!</h1>
+          <h1 className="title is-size-1 is-size-3-mobile google-font-bs has-text-centered">Read Cool Posts!</h1>
           <div className="columns is-centered is-multiline my-4">
-            <Tile to="/Home/?cat=website" title="Website Development" />
-            <Tile to="/Home/?cat=errors" title="Fixing Errors" />
+            <Tile to="/Home/?cat=website" title="Being a Creator" />
+            <Tile to="/Home/?cat=errors" title="Coding Errors" />
           </div>
         </div>
         <div className="column">

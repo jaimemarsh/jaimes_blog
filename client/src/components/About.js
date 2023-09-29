@@ -14,7 +14,7 @@ const About = () => {
                         <img src={jaimeImg} alt="" />
                     </div> */}
                     <div className="column has-text-left">
-                        <h1 className="title is-size-1 is-size-3-mobile google-font-pd mb-6 has-text-centered google-font-bs">About The Blog</h1>
+                        <h1 className="title is-size-1 is-size-3-mobile google-font-pd mb-6 has-text-centered google-font-bs">Why Write a Blog </h1>
                         <p className="is-size-4 is-size-5-mobile has-text-justified google-font-ss">
                             My name is Jaime Marsh and I am a Web Developer. I love to be creative in my day to day life and learned to
                             program as a way to create things to help other people. This is a small project that, with more time, could turn
