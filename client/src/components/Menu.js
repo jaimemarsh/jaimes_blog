@@ -31,7 +31,7 @@ const Menu = ({cat}) => {
             {posts.map(post => (
                 <div className="post" key={post.id}>
                     <div className="my-5">
-                    <img src={`../upload/${post?.img}`} alt="" />
+                    {/* <img src={`../upload/${post?.img}`} alt="" /> */}
                     <h2>{getText(post.title)}</h2>
                     <button className="button">Read More</button>
                     </div>

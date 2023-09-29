@@ -13,7 +13,8 @@ const Home = () => {
         const fetchData = async () => {
             try {
                 const res = await axios.get(`/posts${cat}`)
-                setPosts(res.data)
+                const reversedPosts = res.data.reverse();
+                setPosts(reversedPosts)
             } catch (err) {
                 console.log(err)
             }
@@ -26,9 +27,17 @@ const Home = () => {
         return doc.body.textContent
     }
 
+
+    const split = (html) => {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const sentences = doc.body.textContent.split('. ');
+        // Take the first two sentences
+        return sentences.slice(0, 2).join('. ');
+    };
+
     return (
         <>
-            <h1 className="home title"> Home</h1>
+            <h1 className="home title google-font-bs p-3">All Posts</h1>
             <div className="container is-max-desktop">
                 <div className="posts">
                     {posts.map(post => (
@@ -39,9 +48,9 @@ const Home = () => {
                             </div>
                             <div className="content">
                                 <Link className="link" to={`/post/${post.id}`}>
-                                    <h1>{getText(post.title)}</h1>
-                                    <p>{getText(post.desc)}</p>
-                                    <button>Read More</button>
+                                    <h1 className="google-font-bs"> {getText(post.title)}</h1>
+                                    <p className="google-font-ss">{split(post.desc)}</p>
+                                    <button className="button is-danger google-font-ss">Read More</button>
                                 </Link>
                             </div>
                         </div>

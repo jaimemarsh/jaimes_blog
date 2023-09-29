@@ -4,6 +4,8 @@ import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import moment from "moment";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFaceSmileBeam } from '@fortawesome/free-solid-svg-icons'
 
 const Write = () => {
 
@@ -54,64 +56,68 @@ const Write = () => {
 
     return (
         <div className="container is-max-desktop">
+            <div className="section">
+                <h1 className="google-font-bs">Hey! Remember to Write FOR YOU first! </h1>
+                <h1 className="google-font-bs">You're doing amazing<FontAwesomeIcon className="ml-4" icon={faFaceSmileBeam} /></h1>
+            </div>
             <div className="columns add">
                 <div className="content column">
-                    <input className="input mt-6" type="text" value={title} placeholder="Title" onChange={e => setTitle(e.target.value)} />
-                    <div className="editorContainer">
+                    <input className="input mb-6 google-font-bs" type="text" value={title} placeholder="Title" onChange={e => setTitle(e.target.value)} />
+                    <div className="editorContainer ">
                         <ReactQuill
                             theme="snow"
                             value={value}
                             onChange={setValue} />
                     </div>
+                    <button className="button my-3" type="button" onClick={handleClick}>Publish</button>
                 </div>
 
-                <div className="menu column is-one-fifth">
-                    <span className="item">
-                        <h1>Publish</h1>
-                        <span> <b>Statue: </b> Draft </span>
-                    </span>
+                {/* <div className="menu column is-one-fifth">
+                    {/* <span className="item"> */}
+                {/* <h1>Publish</h1> */}
+                {/* <span> <b>Statue: </b> Draft </span> */}
+                {/* </span>
                     <span className="item">
                         <span> <b>Visibility: </b> Public </span>
-                    </span>
-                    <input style={{ display: "none" }} id="file" type="file" onChange={e => setFile(e.target.files[0])}></input>
-                    <label htmlFor="file">Upload Image</label>
-                    <div className="buttons">
-                        <button className="button">Save as Draft</button>
-                        <button className="button" type="button" onClick={handleClick}>Publish</button>
+                    </span> */}
+                {/* <input style={{ display: "none" }} id="file" type="file" onChange={e => setFile(e.target.files[0])}></input>
+                    <label htmlFor="file">Upload Image</label> */}
+                {/* <div> */}
+                {/* <button className="button">Save as Draft</button> */}
+                {/* </div>  */}
+
+
+                <div className="item">
+                    <h1 className="google-font-bs">Category</h1>
+                    <div className="cat">
+                        <input type="radio" checked={cat === "website"} name="cat" value="website" id="website" onChange={e => setCat(e.target.value)} />
+                        <label htmlFor="website">Website Development</label>
                     </div>
-
-
-                    <div className="item">
-                        <h1>Category</h1>
-                        <div className="cat">
-                            <input type="radio" checked={cat === "art"} name="cat" value="art" id="art" onChange={e => setCat(e.target.value)} />
-                            <label htmlFor="art">Art</label>
-                        </div>
-                        <div className="cat">
-                            <input type="radio" checked={cat === "science"} name="cat" value="science" id="science" onChange={e => setCat(e.target.value)} />
-                            <label htmlFor="science">Science</label>
-                        </div>
-                        <div className="cat">
-                            <input type="radio" checked={cat === "technology"} name="cat" value="technology" id="technology" onChange={e => setCat(e.target.value)} />
-                            <label htmlFor="technology">Technology</label>
-                        </div>
-                        <div className="cat">
-                            <input type="radio" checked={cat === "cinema"} name="cat" value="cinema" id="cinema" onChange={e => setCat(e.target.value)} />
-                            <label htmlFor="cinema">Cinema</label>
-                        </div>
-                        <div className="cat">
-                            <input type="radio" checked={cat === "design"} name="cat" value="design" id="design" onChange={e => setCat(e.target.value)} />
-                            <label htmlFor="design">Design</label>
-                        </div>
-                        <div className="cat">
-                            <input type="radio" checked={cat === "food"} name="cat" value="food" id="food" onChange={e => setCat(e.target.value)} />
-                            <label htmlFor="food">Food</label>
-                        </div>
+                    <div className="cat">
+                        <input type="radio" checked={cat === "errors"} name="cat" value="errors" id="errors" onChange={e => setCat(e.target.value)} />
+                        <label htmlFor="errors">Fixing Errors</label>
                     </div>
-
+                    <div className="cat">
+                        <input type="radio" checked={cat === "education"} name="cat" value="education" id="education" onChange={e => setCat(e.target.value)} />
+                        <label htmlFor="education">Education</label>
+                    </div>
+                    <div className="cat">
+                        <input type="radio" checked={cat === "skills"} name="cat" value="skills" id="skills" onChange={e => setCat(e.target.value)} />
+                        <label htmlFor="skills">Life Skills</label>
+                    </div>
+                    <div className="cat">
+                        <input type="radio" checked={cat === "thoughts"} name="cat" value="thoughts" id="thoughts" onChange={e => setCat(e.target.value)} />
+                        <label htmlFor="thoughts">My Thoughts</label>
+                    </div>
+                    <div className="cat">
+                        <input type="radio" checked={cat === "tbd"} name="cat" value="tbd" id="tbd" onChange={e => setCat(e.target.value)} />
+                        <label htmlFor="tbd">tbd</label>
+                    </div>
                 </div>
+
             </div>
         </div>
+
     );
 };
 

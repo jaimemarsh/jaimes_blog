@@ -4,7 +4,6 @@ import { AuthContext } from '../context/AuthContext';
 import getTech from '../images/getTech.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import '../css/Navbar.css';
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -16,7 +15,7 @@ function Navbar() {
     const { currentUser, logout } = useContext(AuthContext)
 
     return (
-        <nav className="navbar" role="navigation" aria-label="main navigation">
+        <nav className="navbar google-font-ss" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <Link to="/" className="">
                     <img className="logoImg" src={getTech} alt="Logo" />
@@ -48,28 +47,28 @@ function Navbar() {
                             Posts
                         </Link>
                         <div className="navbar-dropdown">
-                            <Link to="/?cat=art" className="link navbar-item">
-                                ART
+                            <Link to="/Home/?cat=website" className="link navbar-item">
+                                WEBSITE DEVELOPMENT
                             </Link>
 
-                            <Link to="/?cat=science" className="link navbar-item">
-                                SCIENCE
+                            <Link to="/Home/?cat=errors" className="link navbar-item">
+                                FIXING ERRORS
                             </Link>
 
-                            <Link to="/?cat=technology" className="link navbar-item">
-                                TECHNOLOGY
+                            <Link to="/Home/?cat=education" className="link navbar-item">
+                                EDUCATION
                             </Link>
 
-                            <Link to="/?cat=cinema" className="link navbar-item">
-                                CINEMA
+                            <Link to="/Home/?cat=skills" className="link navbar-item">
+                                LIFE SKILLS
                             </Link>
 
-                            <Link to="/?cat=design" className="link navbar-item">
-                                DESIGN
+                            <Link to="/Home/?cat=thoughts" className="link navbar-item">
+                                MY THOUGHTS
                             </Link>
 
-                            <Link to="/?cat=food" className="link navbar-item">
-                                FOOD
+                            <Link to="/Home/?cat=tdb" className="link navbar-item">
+                                TBD
                             </Link>
 
                         </div>
