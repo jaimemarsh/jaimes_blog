@@ -42,9 +42,6 @@ export const addPost = (req, res) => {
             req.body.date,
             userInfo.id
 
-
-
-            
         ];
 
         db.query(q, [values], (err, data) => {

@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
-import Logo from '../images/techyLogo.png';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import getTech from '../images/getTech.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import '../css/Navbar.css';
 
 function Navbar() {
@@ -17,7 +19,7 @@ function Navbar() {
         <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <Link to="/" className="">
-                    <img className="image" src={Logo} alt="Logo" />
+                    <img className="logoImg" src={getTech} alt="Logo" />
                 </Link>
                 <div className="navbar-item">
                     <span>
@@ -42,7 +44,7 @@ function Navbar() {
                         Home
                     </Link>
                     <div className="navbar-item has-dropdown is-hoverable">
-                        <Link to="/" className="navbar-link google-font-ss">
+                        <Link to="/Home" className="navbar-link google-font-ss">
                             Posts
                         </Link>
                         <div className="navbar-dropdown">
@@ -72,11 +74,11 @@ function Navbar() {
 
                         </div>
                     </div>
-                    <Link to="/Contact" className="navbar-item google-font-ss">
-                        Contact Me
+                    <Link to="/" className="navbar-item google-font-ss">
+                        <button className="button is-danger">Subscripe</button>
                     </Link>
                     <div className="navbar-item">
-                        {currentUser ? <span onClick={logout}>Logout</span> : <Link className="link" to="/login">Login</Link>}
+                        {currentUser ? <span onClick={logout}>Logout</span> : <Link className="link" to="/login"><FontAwesomeIcon icon={faHeart} /></Link>}
                     </div>
                 </div>
             </div>

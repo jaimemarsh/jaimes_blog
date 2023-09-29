@@ -6,6 +6,7 @@ import Register from "./pages/Register"
 import Login from "./pages/Login"
 import Write from "./pages/Write"
 import Single from "./pages/Single"
+import Main from "./pages/Main"
 import Home from "./pages/Home"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
+                element: <Main />
+            },
+            {
+                path: "Home",
                 element: <Home />
             },
             {

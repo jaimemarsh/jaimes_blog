@@ -18,26 +18,7 @@ const Menu = ({cat}) => {
         fetchData();
     }, [cat]);
 
-    // const posts = [
-    //     {
-    //         id: 1,
-    //         title: "First Post",
-    //         desc: "How to rule the world",
-    //         img: Love
-    //     },
-    //     {
-    //         id: 2,
-    //         title: "Second Post",
-    //         desc: "How to rule the world",
-    //         img: Love
-    //     },
-    //     {
-    //         id: 3,
-    //         title: "Third Post",
-    //         desc: "How to rule the world",
-    //         img: Love
-    //     },
-    // ]
+ 
     const getText = (html) => {
         const doc = new DOMParser().parseFromString(html, "text/html")
         return doc.body.textContent

@@ -1,58 +1,98 @@
- /* Home */
- .posts {
-     margin-top: 50px;
-     display: flex;
-     flex-direction: column;
-     gap: 150px;
- }
+body {
+    background-size: 40px 40px;
+    background-image:
+        linear-gradient(to right, rgba(128, 128, 128, 0.215) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(128, 128, 128, 0.155) 1px, transparent 1px);
+}
 
- .post {
-     display: flex;
-     gap: 100px
- }
+.google-font-ss {
+    font-family: 'Open Sans', sans-serif;
+}
 
- .post:nth-child(2n+1) {
-     flex-direction: row-reverse;
- }
+.google-font-bs{
+    font-family: 'Bad Script', cursive;
+}
 
- .img {
+/* Home */
+.posts {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+}
+
+.post {
+    display: flex;
+    gap: 100px
+}
+
+.post:nth-child(2n+1) {
+    flex-direction: row-reverse;
+}
+
+/* .img {
      flex-grow: 3;
      position: relative;
- }
+ } */
 
- .img::after {
+/* .img::after {
      content: "";
      width: 100%;
      height: 100%;
      /* background-color: rgba(255, 116, 123, 0.762); */
-     background-color: rgba(255, 223, 116, 0.762);
+/* background-color: rgba(255, 223, 116, 0.762);
      position: absolute;
      top: 20px;
      left: -20px;
      z-index: -1;
- }
+ } */
 
- img {
-     width: 100%;
-     max-height: 400px;
-     object-fit: cover;
- }
+.jaiimg {
+    width: 100%;
+    max-height: 700px;
+}
 
- .content {
-     flex-grow: 4;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
- }
+.logoImg {
+    max-height: 150px;
+}
 
- h1 {
-     font-size: 40px;
- }
+.navbar {
+    height: 130px; 
+  };
 
- p {
-     font-size: 18px;
- }
 
- button {
-     cursor: pointer;
- }
+
+.content {
+    flex-grow: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 18px;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* Cat */
+
+.square-tile {
+    width: 300px;
+    height: 100px;
+}
+
+.zoom {
+    transition: transform 0.3s ease;
+}
+
+.zoom:hover {
+    transform: scale(1.1);
+}
