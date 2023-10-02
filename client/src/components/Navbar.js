@@ -74,7 +74,7 @@ function Navbar() {
                         </div>
                     </div>
                     <Link to="/" className="navbar-item google-font-ss">
-                        <button className="button is-danger">Subscripe</button>
+                        <button className="button is-danger">Subscribe</button>
                     </Link>
                     <div className="navbar-item">
                         {currentUser ? <span onClick={logout}>Logout</span> : <Link className="link" to="/login"><FontAwesomeIcon icon={faHeart} /></Link>}

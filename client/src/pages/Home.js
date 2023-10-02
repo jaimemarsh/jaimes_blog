@@ -37,7 +37,7 @@ const Home = () => {
 
     return (
         <>
-            <h1 className="home title google-font-bs p-3">All Posts</h1>
+            <h1 className="home title google-font-bs p-5">All Posts</h1>
             <div className="container is-max-desktop">
                 <div className="posts">
                     {posts.map(post => (

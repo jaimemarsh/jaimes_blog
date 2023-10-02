@@ -12,7 +12,7 @@ const Write = () => {
     const state = useLocation().state
     const [value, setValue] = useState(state?.title || "");
     const [title, setTitle] = useState(state?.desc || "");
-    const [file, setFile] = useState(null);
+    const [file] = useState(null);
     const [cat, setCat] = useState(state?.cat || "");
 
 
@@ -56,7 +56,7 @@ const Write = () => {
 
     return (
         <div className="container is-max-desktop">
-            <div className="section">
+            <div className="section is-size-3">
                 <h1 className="google-font-bs">Hey! Remember to Write FOR YOU first! </h1>
                 <h1 className="google-font-bs">You're doing amazing<FontAwesomeIcon className="ml-4" icon={faFaceSmileBeam} /></h1>
             </div>
