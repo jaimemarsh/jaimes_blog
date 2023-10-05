@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run server & npm run client",
     "server": "cd server && npm run start",
-    "build": "react-scripts build",
+    "build": "cd client && npm start",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "watch": "npm watch"
