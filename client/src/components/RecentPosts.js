@@ -17,10 +17,10 @@ function RecentPosts() {
             });
     }, []);
 
-    const getText = (html) => {
-        const doc = new DOMParser().parseFromString(html, "text/html")
-        return doc.body.textContent
-    }
+    // const getText = (html) => {
+    //     const doc = new DOMParser().parseFromString(html, "text/html")
+    //     return doc.body.textContent
+    // }
     const split = (html) => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
         const sentences = doc.body.textContent.split('. ');
