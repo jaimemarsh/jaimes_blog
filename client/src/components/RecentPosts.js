@@ -17,17 +17,12 @@ function RecentPosts() {
             });
     }, []);
 
-    // const getText = (html) => {
-    //     const doc = new DOMParser().parseFromString(html, "text/html")
-    //     return doc.body.textContent
-    // }
     const split = (html) => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
         const sentences = doc.body.textContent.split('. ');
         // Take the first two sentences
         return sentences.slice(0, 2).join('. ');
     };
-
 
 
     return (
