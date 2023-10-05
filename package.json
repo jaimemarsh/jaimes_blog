@@ -7,10 +7,9 @@
   "scripts": {
     "start": "npm run server & npm run client",
     "server": "cd server && npm run start",
-    "client": "cd client && npm start",
+    "build": "react-scripts build",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build",
     "watch": "npm watch"
   },
   "author": "Jaime Marsh",
